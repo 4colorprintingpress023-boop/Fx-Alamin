@@ -61,21 +61,14 @@
             </div>
         </div>
 
-        <!-- ডিজাইন ২ (উদাহরণ) -->
-        <div class="card" onclick="showModal('design2.jpg', 'রমজান স্পেশাল ব্যানার', 'রমজান ক্যাম্পেইনের জন্য ব্যানার সিরিজ', '499', 'RAMADAN2026')">
+        <!-- আরেকটা ডিজাইন (উদাহরণ) -->
+        <div class="card" onclick="showModal('design2.jpg', 'রমজান স্পেশাল ব্যানার', 'রমজান ক্যাম্পেইন ব্যানার সিরিজ', '499', 'RAMADAN2026')">
             <img src="design2.jpg" alt="রমজান ব্যানার">
             <div class="card-info">
                 <h3>রমজান স্পেশাল ব্যানার</h3>
                 <p class="price">৳ ৪৯৯</p>
             </div>
         </div>
-        <div class="card" onclick="showModal('design3', 'নবীন বরন', 'বর্ণনা', '120', '3993')">
-    <img src="design3" alt="...">
-    <div class="card-info">
-        <h3>ডিজাইনের নাম</h3>
-        <p class="price">৳ প্রাইস</p>
-    </div>
-</div>
 
     </div>
 
@@ -88,9 +81,8 @@
                 <h2 id="modal-title"></h2>
                 <p id="modal-desc"></p>
                 <p class="price" id="modal-price"></p>
-                <p><strong>ডাউনলোড কোড:</strong> <span id="modal-code" style="color:#6d28d9; font-weight:bold;"></span></p>
                 
-                <button class="btn btn-download" onclick="downloadWithCode()">📥 ডাউনলোড করুন</button>
+                <button class="btn btn-download" onclick="requestDownloadCode()">📥 ডাউনলোড করুন</button>
                 <button class="btn btn-order" onclick="orderNow()">🛒 অর্ডার করুন (WhatsApp)</button>
             </div>
         </div>
@@ -99,16 +91,17 @@
     <script>
         let currentFile = "";
         let currentDesignName = "";
+        let currentSecretCode = "";
 
-        function showModal(imageSrc, title, desc, price, code) {
+        function showModal(imageSrc, title, desc, price, secretCode) {
             currentFile = imageSrc;
             currentDesignName = title;
+            currentSecretCode = secretCode;
             
             document.getElementById('modal-image').src = imageSrc;
             document.getElementById('modal-title').innerText = title;
             document.getElementById('modal-desc').innerText = desc;
             document.getElementById('modal-price').innerHTML = `মূল্য: ৳ ${price}`;
-            document.getElementById('modal-code').innerText = code;
             document.getElementById('modal').style.display = 'flex';
         }
 
@@ -116,25 +109,24 @@
             document.getElementById('modal').style.display = 'none';
         }
 
-        function downloadWithCode() {
-            const userCode = prompt(`"${currentDesignName}" ডাউনলোড করতে কোড দিন:`);
-            const correctCode = document.getElementById('modal-code').innerText;
+        function requestDownloadCode() {
+            const userCode = prompt(`"${currentDesignName}" ডাউনলোড করতে আপনার কোড দিন:`);
             
-            if (userCode === correctCode) {
+            if (userCode === currentSecretCode) {
                 const link = document.createElement('a');
                 link.href = currentFile;
                 link.download = currentFile;
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
-                alert("✅ ডাউনলোড শুরু হয়েছে!");
+                alert("✅ সফলভাবে ডাউনলোড শুরু হয়েছে!");
             } else {
-                alert("❌ ভুল কোড দিয়েছেন!");
+                alert("❌ ভুল কোড! শুধুমাত্র সঠিক কোডধারীরা ডাউনলোড করতে পারবেন।");
             }
         }
 
         function orderNow() {
-            const phone = "01859-071581"; // ← তোমার নাম্বার দাও
+            const phone = "880XXXXXXXXXX"; // ← এখানে তোমার নাম্বার দাও
             const message = `আসসালামু আলাইকুম,%0Aআমি এই ডিজাইনটি কিনতে চাই:%0A*${currentDesignName}*`;
             window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
         }
