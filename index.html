@@ -3,132 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ফোর কালার প্রিন্টিং প্রেস | ফোর কালার প্রিন্টিং প্রেস</title>
+    <title>Fx Alamin Design - Graphic Designer</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
+        
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            min-height: 100vh;
-        }
-        header {
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-        .logo { font-size: 2.4rem; font-weight: bold; }
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            margin-left: 35px;
-            font-weight: 500;
-            transition: 0.3s;
-        }
-        .nav-links a:hover { color: #ffd700; }
+        body { font-family: 'Inter', sans-serif; background: #f8f9fc; color: #1a1a2e; }
+        body.dark { background: #0f0f1a; color: #fff; }
 
-        /* Hero Section - খুব সুন্দর */
-        .hero {
-            text-align: center;
-            padding: 160px 20px 100px;
-        }
-        .hero h1 {
-            font-size: 4.2rem;
-            margin-bottom: 20px;
-            animation: fadeInDown 1s ease;
-        }
-        .hero p {
-            font-size: 1.6rem;
-            max-width: 750px;
-            margin: 0 auto 40px;
-            opacity: 0.95;
-        }
-        .btn {
-            background: white;
-            color: #667eea;
-            padding: 18px 50px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1.3rem;
-            font-weight: bold;
-            display: inline-block;
-            transition: all 0.4s;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-        }
-        .btn:hover {
-            transform: translateY(-12px) scale(1.08);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
+        header { background: rgba(255,255,255,0.95); backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 100; padding: 1.2rem 0; border-bottom: 1px solid #eee; }
+        body.dark header { background: rgba(15,15,26,0.95); border-bottom: 1px solid #333; }
 
-        /* অতিরিক্ত সেকশন */
-        .features {
-            max-width: 1100px;
-            margin: 80px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .card {
-            background: rgba(255,255,255,0.2);
-            padding: 35px 25px;
-            border-radius: 20px;
-            text-align: center;
-            transition: 0.4s;
-        }
-        .card:hover {
-            transform: translateY(-15px);
-            background: rgba(255,255,255,0.3);
-        }
+        nav { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 40px; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700; color: #6d28d9; }
+        body.dark .logo { color: #c4b5fd; }
 
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .hero { text-align: center; padding: 140px 20px; background: linear-gradient(135deg, #6d28d9, #a78bfa); color: white; }
+        .hero h1 { font-size: 4.2rem; margin-bottom: 20px; font-family: 'Playfair Display', serif; }
+        .hero p { font-size: 1.5rem; max-width: 700px; margin: 0 auto 40px; }
+
+        .section { padding: 100px 40px; max-width: 1400px; margin: 0 auto; }
+        .section h2 { text-align: center; font-size: 3rem; margin-bottom: 60px; font-family: 'Playfair Display', serif; }
+
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .service-card { background: white; padding: 40px 30px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; transition: 0.4s; }
+        body.dark .service-card { background: #1a1a2e; }
+        .service-card:hover { transform: translateY(-15px); }
+
+        .btn { background: #6d28d9; color: white; padding: 14px 40px; border-radius: 50px; text-decoration: none; display: inline-block; margin-top: 30px; font-weight: 600; }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">MySite</div>
+            <div class="logo">Fx Alamin</div>
             <div class="nav-links">
                 <a href="index.html">হোম</a>
                 <a href="about.html">আমার সম্পর্কে</a>
-                <a href="projects.html">প্রজেক্ট</a>
+                <a href="projects.html">প্রজেক্টস</a>
+                <a href="#services">সার্ভিস</a>
+                <a href="contact.html">যোগাযোগ</a>
             </div>
         </nav>
     </header>
 
     <section class="hero">
-        <h1>হ্যালো, আমি [মোঃ আল-আমিন]</h1>
-        <p>ওয়েব ডেভেলপার হওয়ার পথে। সুন্দর ও কার্যকরী ওয়েবসাইট বানাই।</p>
-        <a href="about.html" class="btn">আমি একজন গ্রাফিক্স ডিজাইনার →</a>
+        <h1>আমি Fx Alamin</h1>
+        <p>প্রফেশনাল গ্রাফিক ডিজাইনার | পোস্টার • ব্যানার • ব্র্যান্ডিং • সোশ্যাল মিডিয়া ডিজাইন</p>
+        <a href="projects.html" class="btn">আমার কাজ দেখুন</a>
     </section>
 
-    <div class="features">
-        <div class="card">
-            <h2>🎨 সুন্দর ডিজাইন</h2>
-            <p>আধুনিক ও মোবাইল ফ্রেন্ডলি ডিজাইন</p>
+    <section id="services" class="section">
+        <h2>আমার সার্ভিসসমূহ</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>🎨 পোস্টার ডিজাইন</h3>
+                <p>ইভেন্ট, ফেস্টিভাল, প্রোডাক্ট পোস্টার</p>
+            </div>
+            <div class="service-card">
+                <h3>📱 সোশ্যাল মিডিয়া ডিজাইন</h3>
+                <p>ফেসবুক, ইনস্টাগ্রাম, ইউটিউব থাম্বনেইল ও ব্যানার</p>
+            </div>
+            <div class="service-card">
+                <h3>🏷️ ব্র্যান্ডিং ও লোগো</h3>
+                <p>লোগো ডিজাইন, ব্র্যান্ড আইডেন্টিটি</p>
+            </div>
+            <div class="service-card">
+                <h3>🖼️ ব্যানার ও প্রিন্ট ডিজাইন</h3>
+                <p>বড় ব্যানার, ভিজিটিং কার্ড, ফ্লায়ার</p>
+            </div>
         </div>
-        <div class="card">
-            <h2>🚀 দ্রুত লোড</h2>
-            <p>HTML + CSS দিয়ে তৈরি, খুব দ্রুত চলে</p>
-        </div>
-        <div class="card">
-            <h2>📚 ভতি চলছে</h2>
-            <p> আমাদের সাথে যোগাযোগ করতে পারেন মোবাইল: 01761399365 </p>
-        </div>
-    </div>
+    </section>
+
+    <p style="text-align:center; padding: 40px;">
+        <a href="projects.html" class="btn">সব প্রজেক্ট দেখুন →</a>
+    </p>
 </body>
 </html>
