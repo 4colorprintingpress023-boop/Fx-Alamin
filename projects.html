@@ -16,20 +16,22 @@
         .hero { background: linear-gradient(135deg, #6d28d9, #a78bfa); color: white; text-align: center; padding: 80px 20px; }
         .hero h1 { font-size: 3rem; }
 
-        .filters { max-width: 1400px; margin: 30px auto; padding: 0 40px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
-        .filter-btn { padding: 10px 24px; background: white; border: 1px solid #ddd; border-radius: 50px; cursor: pointer; }
-        .filter-btn.active { background: #6d28d9; color: white; }
-
-        .gallery { max-width: 1400px; margin: 0 auto; padding: 0 40px 60px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: 0.4s; }
+        .gallery { max-width: 1400px; margin: 40px auto; padding: 0 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: 0.4s; cursor: pointer; }
         .card:hover { transform: translateY(-12px); }
         .card img { width: 100%; height: 260px; object-fit: cover; }
         .card-info { padding: 20px; }
         .price { font-size: 1.5rem; font-weight: 700; color: #6d28d9; margin: 10px 0; }
 
         .btn { padding: 12px 20px; border: none; border-radius: 50px; cursor: pointer; font-weight: 600; margin: 5px 0; width: 100%; }
-        .btn-cart { background: #6d28d9; color: white; }
         .btn-download { background: #10b981; color: white; }
+        .btn-order { background: #6d28d9; color: white; }
+
+        /* Modal */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; align-items: center; justify-content: center; }
+        .modal-content { background: white; max-width: 900px; width: 90%; border-radius: 16px; overflow: hidden; }
+        .modal img { width: 100%; max-height: 70vh; object-fit: contain; }
+        .modal-info { padding: 25px; }
     </style>
 </head>
 <body>
@@ -50,48 +52,83 @@
 
     <div class="gallery" id="gallery">
         
-        <!-- ===== তোমার ডিজাইন যোগ করো ===== -->
-        <div class="card">
+        <!-- ডিজাইন ১ -->
+        <div class="card" onclick="showModal('design1.jpg', 'ফলের উৎসব পোস্টার ২০২৬', 'ফেস্টিভাল পোস্টার, উচ্চমানের প্রিন্ট রেডি', '299', 'FRUIT2026')">
             <img src="design1.jpg" alt="ফলের উৎসব">
             <div class="card-info">
                 <h3>ফলের উৎসব পোস্টার ২০২৬</h3>
                 <p class="price">৳ ২৯৯</p>
-                <button class="btn btn-download" onclick="downloadFile('design1.jpg')">📥 ডাউনলোড করুন</button>
-                <button class="btn btn-cart" onclick="orderNow('ফলের উৎসব পোস্টার ২০২৬ - ৳299')">🛒 অর্ডার করুন</button>
             </div>
         </div>
 
-        <!-- আরেকটা উদাহরণ (কপি করে ব্যবহার করো) -->
-        <!--
-        <div class="card">
+        <!-- ডিজাইন ২ (উদাহরণ) -->
+        <div class="card" onclick="showModal('design2.jpg', 'রমজান স্পেশাল ব্যানার', 'রমজান ক্যাম্পেইনের জন্য ব্যানার সিরিজ', '499', 'RAMADAN2026')">
             <img src="design2.jpg" alt="রমজান ব্যানার">
             <div class="card-info">
                 <h3>রমজান স্পেশাল ব্যানার</h3>
                 <p class="price">৳ ৪৯৯</p>
-                <button class="btn btn-download" onclick="downloadFile('design2.jpg')">📥 ডাউনলোড করুন</button>
-                <button class="btn btn-cart" onclick="orderNow('রমজান স্পেশাল ব্যানার - ৳499')">🛒 অর্ডার করুন</button>
             </div>
         </div>
-        -->
 
     </div>
 
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span onclick="closeModal()" style="position:absolute; top:15px; right:25px; font-size:30px; color:#333; cursor:pointer;">&times;</span>
+            <img id="modal-image" src="" alt="">
+            <div class="modal-info">
+                <h2 id="modal-title"></h2>
+                <p id="modal-desc"></p>
+                <p class="price" id="modal-price"></p>
+                <p><strong>ডাউনলোড কোড:</strong> <span id="modal-code" style="color:#6d28d9; font-weight:bold;"></span></p>
+                
+                <button class="btn btn-download" onclick="downloadWithCode()">📥 ডাউনলোড করুন</button>
+                <button class="btn btn-order" onclick="orderNow()">🛒 অর্ডার করুন (WhatsApp)</button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // ডাউনলোড ফাংশন
-        function downloadFile(filename) {
-            const link = document.createElement('a');
-            link.href = filename;
-            link.download = filename;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            alert(filename + " ডাউনলোড শুরু হয়েছে!");
+        let currentFile = "";
+        let currentDesignName = "";
+
+        function showModal(imageSrc, title, desc, price, code) {
+            currentFile = imageSrc;
+            currentDesignName = title;
+            
+            document.getElementById('modal-image').src = imageSrc;
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-desc').innerText = desc;
+            document.getElementById('modal-price').innerHTML = `মূল্য: ৳ ${price}`;
+            document.getElementById('modal-code').innerText = code;
+            document.getElementById('modal').style.display = 'flex';
         }
 
-        // অর্ডার ফাংশন (WhatsApp)
-        function orderNow(productName) {
-            const phone = "+880 1859-071581";   // ← এখানে তোমার নাম্বার দাও (880 দিয়ে শুরু)
-            const message = `আসসালামু আলাইকুম,%0A%0Aআমি এই ডিজাইনটি কিনতে চাই:%0A*${productName}*%0A%0Aপেমেন্ট করবো বিকাশ/নগদ এ।%0Aধন্যবাদ!`;
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        function downloadWithCode() {
+            const userCode = prompt(`"${currentDesignName}" ডাউনলোড করতে কোড দিন:`);
+            const correctCode = document.getElementById('modal-code').innerText;
+            
+            if (userCode === correctCode) {
+                const link = document.createElement('a');
+                link.href = currentFile;
+                link.download = currentFile;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                alert("✅ ডাউনলোড শুরু হয়েছে!");
+            } else {
+                alert("❌ ভুল কোড দিয়েছেন!");
+            }
+        }
+
+        function orderNow() {
+            const phone = "01859-071581"; // ← তোমার নাম্বার দাও
+            const message = `আসসালামু আলাইকুম,%0Aআমি এই ডিজাইনটি কিনতে চাই:%0A*${currentDesignName}*`;
             window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
         }
     </script>
