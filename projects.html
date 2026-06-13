@@ -8,11 +8,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #f8f9fc;
-            color: #1a1a2e;
-        }
+        body { font-family: 'Inter', sans-serif; background: #f8f9fc; color: #1a1a2e; }
         header { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
         nav { max-width: 1400px; margin: 0 auto; padding: 1rem 40px; display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.9rem; font-weight: 700; color: #6d28d9; }
@@ -31,18 +27,9 @@
         .card-info { padding: 20px; }
         .price { font-size: 1.5rem; font-weight: 700; color: #6d28d9; margin: 10px 0; }
 
-        .btn { padding: 12px 20px; border: none; border-radius: 50px; cursor: pointer; font-weight: 600; margin-top: 8px; width: 100%; }
+        .btn { padding: 12px 20px; border: none; border-radius: 50px; cursor: pointer; font-weight: 600; margin: 5px 0; width: 100%; }
         .btn-cart { background: #6d28d9; color: white; }
         .btn-download { background: #10b981; color: white; }
-
-        /* কার্ট সাইডবার */
-        #cart-sidebar {
-            position: fixed; top: 0; right: -400px; width: 400px; height: 100%; background: white;
-            box-shadow: -10px 0 30px rgba(0,0,0,0.2); transition: 0.4s; z-index: 1000; padding: 20px;
-        }
-        #cart-sidebar.open { right: 0; }
-        .cart-item { display: flex; margin-bottom: 15px; }
-        .cart-item img { width: 60px; height: 60px; object-fit: cover; border-radius: 8px; margin-right: 10px; }
     </style>
 </head>
 <body>
@@ -51,7 +38,7 @@
             <div class="logo">Fx Alamin Design</div>
             <div>
                 <a href="index.html">হোম</a>
-                <a href="#" onclick="toggleCart()" style="margin-left:25px; cursor:pointer;">🛒 কার্ট (<span id="cart-count">0</span>)</a>
+                <a href="contact.html" style="margin-left:25px;">যোগাযোগ</a>
             </div>
         </nav>
     </header>
@@ -61,101 +48,51 @@
         <p>প্রিমিয়াম গ্রাফিক ডিজাইন রিসোর্স</p>
     </section>
 
-    <!-- প্রাইসিং প্ল্যান সেকশন -->
-    <div style="max-width:1200px; margin:40px auto; padding:0 40px;">
-        <h2 style="text-align:center; margin-bottom:30px;">প্রাইসিং প্ল্যান</h2>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:25px;">
-            <div style="background:white; padding:30px; border-radius:16px; text-align:center; box-shadow:0 5px 20px rgba(0,0,0,0.1);">
-                <h3>সিঙ্গেল ডিজাইন</h3>
-                <h2 style="color:#6d28d9;">৳ ২৯৯</h2>
-                <p>একটা ডিজাইন</p>
-            </div>
-            <div style="background:white; padding:30px; border-radius:16px; text-align:center; box-shadow:0 5px 20px rgba(0,0,0,0.1); border:2px solid #6d28d9;">
-                <h3 style="color:#6d28d9;">মোস্ট পপুলার</h3>
-                <h2 style="color:#6d28d9;">৳ ৯৯৯</h2>
-                <p>৫টা ডিজাইন</p>
-            </div>
-            <div style="background:white; padding:30px; border-radius:16px; text-align:center; box-shadow:0 5px 20px rgba(0,0,0,0.1);">
-                <h3>প্রিমিয়াম প্যাক</h3>
-                <h2 style="color:#6d28d9;">৳ ২৯৯৯</h2>
-                <p>২০+ ডিজাইন</p>
-            </div>
-        </div>
-    </div>
-
     <div class="gallery" id="gallery">
-        <!-- উদাহরণ কার্ড -->
-        <div class="card" data-category="poster">
-            <img src="design1.jpg" alt="ডিজাইন">
+        
+        <!-- ===== তোমার ডিজাইন যোগ করো ===== -->
+        <div class="card">
+            <img src="design1.jpg" alt="ফলের উৎসব">
             <div class="card-info">
-                <h3>ফলের উৎসব পোস্টার</h3>
+                <h3>ফলের উৎসব পোস্টার ২০২৬</h3>
                 <p class="price">৳ ২৯৯</p>
-                <button class="btn btn-cart" onclick="addToCart(this)">কার্টে যোগ করুন</button>
-                <button class="btn btn-download" onclick="downloadDesign('design1.jpg')">ডাউনলোড করুন</button>
+                <button class="btn btn-download" onclick="downloadFile('design1.jpg')">📥 ডাউনলোড করুন</button>
+                <button class="btn btn-cart" onclick="orderNow('ফলের উৎসব পোস্টার ২০২৬ - ৳299')">🛒 অর্ডার করুন</button>
             </div>
         </div>
 
-        <!-- আরও কার্ড এখানে যোগ করো -->
-    </div>
+        <!-- আরেকটা উদাহরণ (কপি করে ব্যবহার করো) -->
+        <!--
+        <div class="card">
+            <img src="design2.jpg" alt="রমজান ব্যানার">
+            <div class="card-info">
+                <h3>রমজান স্পেশাল ব্যানার</h3>
+                <p class="price">৳ ৪৯৯</p>
+                <button class="btn btn-download" onclick="downloadFile('design2.jpg')">📥 ডাউনলোড করুন</button>
+                <button class="btn btn-cart" onclick="orderNow('রমজান স্পেশাল ব্যানার - ৳499')">🛒 অর্ডার করুন</button>
+            </div>
+        </div>
+        -->
 
-    <!-- কার্ট সাইডবার -->
-    <div id="cart-sidebar">
-        <h2>🛒 তোমার কার্ট</h2>
-        <div id="cart-items"></div>
-        <h3 style="margin-top:20px;">মোট: <span id="total-price">৳ 0</span></h3>
-        <button onclick="checkout()" style="margin-top:20px; width:100%; padding:15px; background:#10b981; color:white; border:none; border-radius:50px;">অর্ডার সম্পন্ন করুন</button>
-        <button onclick="toggleCart()" style="margin-top:10px; width:100%; padding:12px;">বন্ধ করুন</button>
     </div>
 
     <script>
-        let cart = [];
-
-        function addToCart(btn) {
-            const card = btn.parentElement.parentElement;
-            const title = card.querySelector('h3').innerText;
-            const price = parseInt(card.querySelector('.price').innerText.replace('৳', '').trim());
-            
-            cart.push({title, price});
-            updateCart();
-            alert(title + " কার্টে যোগ হয়েছে!");
+        // ডাউনলোড ফাংশন
+        function downloadFile(filename) {
+            const link = document.createElement('a');
+            link.href = filename;
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            alert(filename + " ডাউনলোড শুরু হয়েছে!");
         }
 
-        function updateCart() {
-            document.getElementById('cart-count').innerText = cart.length;
-            let itemsHTML = '';
-            let total = 0;
-            
-            cart.forEach((item, index) => {
-                total += item.price;
-                itemsHTML += `<div class="cart-item">
-                    <p>${item.title} - ৳${item.price}</p>
-                </div>`;
-            });
-            
-            document.getElementById('cart-items').innerHTML = itemsHTML;
-            document.getElementById('total-price').innerText = '৳ ' + total;
-        }
-
-        function toggleCart() {
-            document.getElementById('cart-sidebar').classList.toggle('open');
-        }
-
-        function checkout() {
-            if(cart.length === 0) return alert("কার্ট খালি!");
-            alert("অর্ডার সম্পন্ন হয়েছে! (ডেমো মোড)");
-            cart = [];
-            updateCart();
-            toggleCart();
-        }
-
-        function downloadDesign(filename) {
-            alert(filename + " ডাউনলোড শুরু হচ্ছে... (আপনি পরে আসল ফাইল আপলোড করে লিংক দিতে পারবেন)");
-            // আসল ডাউনলোড: window.location.href = filename;
-        }
-
-        function filter(category) {
-            // ফিল্টার কোড (প্রয়োজনে যোগ করা যাবে)
-            alert(category + " ফিল্টার চালু হয়েছে (ডেমো)");
+        // অর্ডার ফাংশন (WhatsApp)
+        function orderNow(productName) {
+            const phone = "+880 1859-071581";   // ← এখানে তোমার নাম্বার দাও (880 দিয়ে শুরু)
+            const message = `আসসালামু আলাইকুম,%0A%0Aআমি এই ডিজাইনটি কিনতে চাই:%0A*${productName}*%0A%0Aপেমেন্ট করবো বিকাশ/নগদ এ।%0Aধন্যবাদ!`;
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
         }
     </script>
 </body>
