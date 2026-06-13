@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Fx Alamin Design</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: #f8f9fc; 
+            color: #1a1a2e; 
+            min-height: 100vh;
+        }
+        body.dark { background: #0f0f1a; color: #fff; }
+
+        header {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(15px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        body.dark header { background: rgba(15,15,26,0.95); border-bottom: 1px solid #333; }
+
+        nav { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 40px; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700; color: #6d28d9; }
+        body.dark .logo { color: #c4b5fd; }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 80px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        body.dark .contact-container { background: #1a1a2e; }
+
+        h1 { text-align: center; font-size: 3.2rem; margin-bottom: 20px; font-family: 'Playfair Display', serif; }
+        p { text-align: center; font-size: 1.2rem; margin-bottom: 50px; opacity: 0.8; }
+
+        .form-group { margin-bottom: 25px; }
+        label { display: block; margin-bottom: 8px; font-weight: 500; }
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            font-size: 1rem;
+        }
+        body.dark input, body.dark textarea { background: #16213e; border-color: #333; color: #fff; }
+
+        button {
+            background: #6d28d9;
+            color: white;
+            padding: 16px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Fx Alamin</div>
+            <div class="nav-links">
+                <a href="index.html">হোম</a>
+                <a href="about.html">আমার সম্পর্কে</a>
+                <a href="projects.html">প্রজেক্টস</a>
+                <a href="contact.html">যোগাযোগ</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="contact-container">
+        <h1>যোগাযোগ করুন</h1>
+        <p>নতুন প্রজেক্ট নিয়ে কথা বলতে চাইলে নিচে মেসেজ দিন</p>
+        
+        <form>
+            <div class="form-group">
+                <label>আপনার নাম</label>
+                <input type="text" placeholder="আপনার নাম লিখুন" required>
+            </div>
+            <div class="form-group">
+                <label>ইমেইল অ্যাড্রেস</label>
+                <input type="email" placeholder="আপনার ইমেইল" required>
+            </div>
+            <div class="form-group">
+                <label>কোন সার্ভিস চান?</label>
+                <input type="text" placeholder="যেমন: পোস্টার, ব্র্যান্ডিং, সোশ্যাল মিডিয়া">
+            </div>
+            <div class="form-group">
+                <label>বিস্তারিত মেসেজ</label>
+                <textarea rows="6" placeholder="আপনার প্রজেক্ট সম্পর্কে বিস্তারিত লিখুন..."></textarea>
+            </div>
+            <button type="submit">মেসেজ পাঠান</button>
+        </form>
+    </div>
+</body>
+</html>
