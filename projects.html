@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>প্রজেক্টস</title>
+    <title>প্রজেক্টস | My Design Works</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -17,51 +17,88 @@
             background: rgba(255,255,255,0.15);
             padding: 1rem 0;
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
+            border-radius: 15px;
         }
-        .logo { font-size: 2.2rem; font-weight: bold; }
-        main { max-width: 1000px; margin: 0 auto; }
-        h1 { text-align: center; margin-bottom: 50px; font-size: 3rem; }
-        .projects-grid {
+        .logo { font-size: 2.5rem; font-weight: bold; }
+        h1 { text-align: center; margin-bottom: 60px; font-size: 3.2rem; }
+        
+        .gallery {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 25px;
         }
-        .project-card {
+        
+        .design-card {
             background: rgba(255,255,255,0.2);
-            border-radius: 15px;
-            padding: 25px;
-            transition: all 0.4s;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
-        .project-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255,255,255,0.3);
+        .design-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
-        .project-card h2 { margin-bottom: 15px; }
+        .design-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+        .info {
+            padding: 20px;
+        }
+        .info h3 {
+            margin-bottom: 8px;
+            font-size: 1.4rem;
+        }
+        .info p {
+            opacity: 0.9;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        .date {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">MySite</div>
+        <div class="logo">My Design Works</div>
     </header>
-    <main>
-        <h1>আমার প্রজেক্টস</h1>
+
+    <h1>আমার ডিজাইন প্রজেক্টস</h1>
+    
+    <div class="gallery">
         
-        <div class="projects-grid">
-            <div class="project-card">
-                <h2>১. প্রথম ওয়েবসাইট</h2>
-                <p>HTML + CSS দিয়ে বানানো এই পোর্টফোলিও সাইট।</p>
-            </div>
-            
-            <div class="project-card">
-                <h2>২. দ্বিতীয় প্রজেক্ট</h2>
-                <p>এখানে পরে আরেকটা প্রজেক্ট যোগ করবো।</p>
+        <!-- নতুন ডিজাইন এখানে যোগ করবে (প্রতিদিন) -->
+        <div class="design-card">
+            <img src="design1.jpg" alt="ডিজাইন ১">
+            <div class="info">
+                <h3>প্রজেক্ট নাম ১</h3>
+                <p>সংক্ষিপ্ত বর্ণনা। কোন টুল দিয়ে বানিয়েছি, ক্লায়েন্ট ইত্যাদি।</p>
+                <div class="date">১৩ জুন, ২০২৬</div>
             </div>
         </div>
-        
-        <p style="text-align:center; margin-top: 50px;">
-            <a href="index.html" style="color:#ffd700; font-size: 1.2rem;">← হোমে ফিরে যাও</a>
-        </p>
-    </main>
+
+        <!-- আরেকটা উদাহরণ -->
+        <div class="design-card">
+            <img src="design2.jpg" alt="ডিজাইন ২">
+            <div class="info">
+                <h3>প্রজেক্ট নাম ২</h3>
+                <p>এখানে তোমার দ্বিতীয় ডিজাইনের বর্ণনা লিখবে।</p>
+                <div class="date">১২ জুন, ২০২৬</div>
+            </div>
+        </div>
+
+    </div>
+
+    <p style="text-align:center; margin-top: 60px;">
+        <a href="index.html" style="color:#ffd700; font-size: 1.3rem;">← হোমে ফিরে যাও</a>
+    </p>
 </body>
 </html>
