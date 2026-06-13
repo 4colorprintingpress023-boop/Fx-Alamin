@@ -13,98 +13,36 @@
             background: #f8f9fc;
             color: #1a1a2e;
         }
-        header {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        nav {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 1rem 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        header { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        nav { max-width: 1400px; margin: 0 auto; padding: 1rem 40px; display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.9rem; font-weight: 700; color: #6d28d9; }
 
-        .hero {
-            background: linear-gradient(135deg, #6d28d9, #a78bfa);
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-        }
-        .hero h1 { font-size: 3.2rem; margin-bottom: 15px; }
+        .hero { background: linear-gradient(135deg, #6d28d9, #a78bfa); color: white; text-align: center; padding: 80px 20px; }
+        .hero h1 { font-size: 3rem; }
 
-        .filters {
-            max-width: 1400px;
-            margin: 40px auto;
-            padding: 0 40px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
-        }
-        .filter-btn {
-            padding: 12px 26px;
-            background: white;
-            border: 1px solid #ddd;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 500;
-        }
-        .filter-btn.active { background: #6d28d9; color: white; border-color: #6d28d9; }
+        .filters { max-width: 1400px; margin: 30px auto; padding: 0 40px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+        .filter-btn { padding: 10px 24px; background: white; border: 1px solid #ddd; border-radius: 50px; cursor: pointer; }
+        .filter-btn.active { background: #6d28d9; color: white; }
 
-        .gallery {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px 80px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+        .gallery { max-width: 1400px; margin: 0 auto; padding: 0 40px 60px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: 0.4s; }
+        .card:hover { transform: translateY(-12px); }
+        .card img { width: 100%; height: 260px; object-fit: cover; }
+        .card-info { padding: 20px; }
+        .price { font-size: 1.5rem; font-weight: 700; color: #6d28d9; margin: 10px 0; }
+
+        .btn { padding: 12px 20px; border: none; border-radius: 50px; cursor: pointer; font-weight: 600; margin-top: 8px; width: 100%; }
+        .btn-cart { background: #6d28d9; color: white; }
+        .btn-download { background: #10b981; color: white; }
+
+        /* কার্ট সাইডবার */
+        #cart-sidebar {
+            position: fixed; top: 0; right: -400px; width: 400px; height: 100%; background: white;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.2); transition: 0.4s; z-index: 1000; padding: 20px;
         }
-        .card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transition: 0.4s;
-        }
-        .card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 20px 35px rgba(0,0,0,0.15);
-        }
-        .card img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-        }
-        .card-info {
-            padding: 20px;
-        }
-        .card-info h3 {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-        }
-        .price {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #6d28d9;
-            margin: 10px 0;
-        }
-        .btn {
-            background: #6d28d9;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            width: 100%;
-            font-weight: 600;
-        }
-        .btn:hover { background: #5b21b6; }
+        #cart-sidebar.open { right: 0; }
+        .cart-item { display: flex; margin-bottom: 15px; }
+        .cart-item img { width: 60px; height: 60px; object-fit: cover; border-radius: 8px; margin-right: 10px; }
     </style>
 </head>
 <body>
@@ -113,60 +51,111 @@
             <div class="logo">Fx Alamin Design</div>
             <div>
                 <a href="index.html">হোম</a>
-                <a href="contact.html" style="margin-left:20px;">যোগাযোগ</a>
+                <a href="#" onclick="toggleCart()" style="margin-left:25px; cursor:pointer;">🛒 কার্ট (<span id="cart-count">0</span>)</a>
             </div>
         </nav>
     </header>
 
     <section class="hero">
-        <h1>আমার ডিজাইন শপ</h1>
-        <p>প্রিমিয়াম কোয়ালিটির গ্রাফিক ডিজাইন রিসোর্স</p>
+        <h1>ডিজাইন শপ</h1>
+        <p>প্রিমিয়াম গ্রাফিক ডিজাইন রিসোর্স</p>
     </section>
 
-    <div class="filters">
-        <button class="filter-btn active" onclick="filter('all')">সব</button>
-        <button class="filter-btn" onclick="filter('poster')">পোস্টার</button>
-        <button class="filter-btn" onclick="filter('banner')">ব্যানার</button>
-        <button class="filter-btn" onclick="filter('social')">সোশ্যাল মিডিয়া</button>
+    <!-- প্রাইসিং প্ল্যান সেকশন -->
+    <div style="max-width:1200px; margin:40px auto; padding:0 40px;">
+        <h2 style="text-align:center; margin-bottom:30px;">প্রাইসিং প্ল্যান</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:25px;">
+            <div style="background:white; padding:30px; border-radius:16px; text-align:center; box-shadow:0 5px 20px rgba(0,0,0,0.1);">
+                <h3>সিঙ্গেল ডিজাইন</h3>
+                <h2 style="color:#6d28d9;">৳ ২৯৯</h2>
+                <p>একটা ডিজাইন</p>
+            </div>
+            <div style="background:white; padding:30px; border-radius:16px; text-align:center; box-shadow:0 5px 20px rgba(0,0,0,0.1); border:2px solid #6d28d9;">
+                <h3 style="color:#6d28d9;">মোস্ট পপুলার</h3>
+                <h2 style="color:#6d28d9;">৳ ৯৯৯</h2>
+                <p>৫টা ডিজাইন</p>
+            </div>
+            <div style="background:white; padding:30px; border-radius:16px; text-align:center; box-shadow:0 5px 20px rgba(0,0,0,0.1);">
+                <h3>প্রিমিয়াম প্যাক</h3>
+                <h2 style="color:#6d28d9;">৳ ২৯৯৯</h2>
+                <p>২০+ ডিজাইন</p>
+            </div>
+        </div>
     </div>
 
     <div class="gallery" id="gallery">
-        <!-- তোমার ডিজাইনগুলো এখানে যোগ করো -->
+        <!-- উদাহরণ কার্ড -->
         <div class="card" data-category="poster">
-            <img src="design1.jpg" alt="ফলের উৎসব">
+            <img src="design1.jpg" alt="ডিজাইন">
             <div class="card-info">
-                <h3>ফলের উৎসব পোস্টার ২০২৬</h3>
+                <h3>ফলের উৎসব পোস্টার</h3>
                 <p class="price">৳ ২৯৯</p>
-                <button class="btn" onclick="alert('ডাউনলোড শুরু হচ্ছে... (এখনো ডেমো)')">ডাউনলোড করুন</button>
+                <button class="btn btn-cart" onclick="addToCart(this)">কার্টে যোগ করুন</button>
+                <button class="btn btn-download" onclick="downloadDesign('design1.jpg')">ডাউনলোড করুন</button>
             </div>
         </div>
 
-        <!-- আরও কার্ড যোগ করার উদাহরণ -->
-        <!-- 
-        <div class="card" data-category="banner">
-            <img src="design2.jpg" alt="ব্যানার">
-            <div class="card-info">
-                <h3>রমজান ব্যানার সিরিজ</h3>
-                <p class="price">৳ ৪৯৯</p>
-                <button class="btn">ডাউনলোড করুন</button>
-            </div>
-        </div>
-        -->
+        <!-- আরও কার্ড এখানে যোগ করো -->
+    </div>
+
+    <!-- কার্ট সাইডবার -->
+    <div id="cart-sidebar">
+        <h2>🛒 তোমার কার্ট</h2>
+        <div id="cart-items"></div>
+        <h3 style="margin-top:20px;">মোট: <span id="total-price">৳ 0</span></h3>
+        <button onclick="checkout()" style="margin-top:20px; width:100%; padding:15px; background:#10b981; color:white; border:none; border-radius:50px;">অর্ডার সম্পন্ন করুন</button>
+        <button onclick="toggleCart()" style="margin-top:10px; width:100%; padding:12px;">বন্ধ করুন</button>
     </div>
 
     <script>
-        function filter(category) {
-            const cards = document.querySelectorAll('.card');
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+        let cart = [];
 
-            cards.forEach(card => {
-                if (category === 'all') {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = card.getAttribute('data-category') === category ? 'block' : 'none';
-                }
+        function addToCart(btn) {
+            const card = btn.parentElement.parentElement;
+            const title = card.querySelector('h3').innerText;
+            const price = parseInt(card.querySelector('.price').innerText.replace('৳', '').trim());
+            
+            cart.push({title, price});
+            updateCart();
+            alert(title + " কার্টে যোগ হয়েছে!");
+        }
+
+        function updateCart() {
+            document.getElementById('cart-count').innerText = cart.length;
+            let itemsHTML = '';
+            let total = 0;
+            
+            cart.forEach((item, index) => {
+                total += item.price;
+                itemsHTML += `<div class="cart-item">
+                    <p>${item.title} - ৳${item.price}</p>
+                </div>`;
             });
+            
+            document.getElementById('cart-items').innerHTML = itemsHTML;
+            document.getElementById('total-price').innerText = '৳ ' + total;
+        }
+
+        function toggleCart() {
+            document.getElementById('cart-sidebar').classList.toggle('open');
+        }
+
+        function checkout() {
+            if(cart.length === 0) return alert("কার্ট খালি!");
+            alert("অর্ডার সম্পন্ন হয়েছে! (ডেমো মোড)");
+            cart = [];
+            updateCart();
+            toggleCart();
+        }
+
+        function downloadDesign(filename) {
+            alert(filename + " ডাউনলোড শুরু হচ্ছে... (আপনি পরে আসল ফাইল আপলোড করে লিংক দিতে পারবেন)");
+            // আসল ডাউনলোড: window.location.href = filename;
+        }
+
+        function filter(category) {
+            // ফিল্টার কোড (প্রয়োজনে যোগ করা যাবে)
+            alert(category + " ফিল্টার চালু হয়েছে (ডেমো)");
         }
     </script>
 </body>
