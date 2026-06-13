@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>আমার ওয়েবসাইট</title>
+    <title>আমার ওয়েবসাইট | MySite</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -14,63 +14,86 @@
         }
         header {
             background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
             padding: 1rem 0;
             position: sticky;
             top: 0;
+            z-index: 100;
         }
         nav {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 0 20px;
         }
-        .logo { font-size: 2.3rem; font-weight: bold; }
+        .logo { font-size: 2.4rem; font-weight: bold; }
         .nav-links a {
             color: white;
             text-decoration: none;
-            margin-left: 30px;
+            margin-left: 35px;
             font-weight: 500;
             transition: 0.3s;
         }
-        .nav-links a:hover { color: #ffd700; transform: scale(1.1); }
+        .nav-links a:hover { color: #ffd700; }
 
-        /* Hero Section - আরও আকর্ষণীয় */
+        /* Hero Section - খুব সুন্দর */
         .hero {
             text-align: center;
-            padding: 120px 20px 80px;
+            padding: 160px 20px 100px;
         }
         .hero h1 {
-            font-size: 4rem;
+            font-size: 4.2rem;
             margin-bottom: 20px;
-            animation: fadeIn 1.5s;
+            animation: fadeInDown 1s ease;
         }
         .hero p {
-            font-size: 1.5rem;
-            max-width: 700px;
+            font-size: 1.6rem;
+            max-width: 750px;
             margin: 0 auto 40px;
             opacity: 0.95;
         }
         .btn {
             background: white;
             color: #667eea;
-            padding: 18px 45px;
+            padding: 18px 50px;
             border-radius: 50px;
             text-decoration: none;
             font-size: 1.3rem;
             font-weight: bold;
             display: inline-block;
             transition: all 0.4s;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
         }
         .btn:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 20px 35px rgba(0,0,0,0.3);
+            transform: translateY(-12px) scale(1.08);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
+        /* অতিরিক্ত সেকশন */
+        .features {
+            max-width: 1100px;
+            margin: 80px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: rgba(255,255,255,0.2);
+            padding: 35px 25px;
+            border-radius: 20px;
+            text-align: center;
+            transition: 0.4s;
+        }
+        .card:hover {
+            transform: translateY(-15px);
+            background: rgba(255,255,255,0.3);
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
@@ -88,9 +111,24 @@
     </header>
 
     <section class="hero">
-        <h1>স্বাগতম আমার জগতে!</h1>
-        <p>আমি ওয়েব ডেভেলপমেন্ট শিখছি। এখানে আমার প্রজেক্ট ও জার্নি দেখুন।</p>
+        <h1>হ্যালো, আমি [তোমার নাম]</h1>
+        <p>ওয়েব ডেভেলপার হওয়ার পথে। সুন্দর ও কার্যকরী ওয়েবসাইট বানাই।</p>
         <a href="about.html" class="btn">আমার সম্পর্কে জানুন →</a>
     </section>
+
+    <div class="features">
+        <div class="card">
+            <h2>🎨 সুন্দর ডিজাইন</h2>
+            <p>আধুনিক ও মোবাইল ফ্রেন্ডলি ডিজাইন</p>
+        </div>
+        <div class="card">
+            <h2>🚀 দ্রুত লোড</h2>
+            <p>HTML + CSS দিয়ে তৈরি, খুব দ্রুত চলে</p>
+        </div>
+        <div class="card">
+            <h2>📚 শেখা চলছে</h2>
+            <p>প্রতিদিন নতুন কিছু যোগ করছি</p>
+        </div>
+    </div>
 </body>
 </html>
