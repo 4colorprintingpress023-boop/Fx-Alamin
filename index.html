@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fx Alamin Design</title>
+    <title>ডিজাইন শপ | Fx Alamin</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         
@@ -11,131 +11,106 @@
         body { font-family: 'Inter', sans-serif; background: #f8f9fc; color: #1a1a2e; }
 
         header {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            background: linear-gradient(135deg, #6d28d9, #8b5cf6);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
         }
-        nav {
-            max-width: 1400px;
+        .header-content {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 0 20px;
         }
-        .logo {
-            font-size: 1.9rem;
-            font-weight: 700;
-            color: #6d28d9;
-            text-decoration: none;
-        }
-
-        .hero {
+        .logo-area {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 60px;
-            max-width: 1400px;
-            margin: 80px auto;
-            padding: 0 40px;
-            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 10px;
         }
-        .hero-text { max-width: 500px; }
-        .hero-text h1 { font-size: 3.5rem; margin-bottom: 20px; }
-        .hero-text p { font-size: 1.3rem; margin-bottom: 30px; color: #444; }
-
-        .hero img {
-            width: 320px;
-            height: 320px;
+        .logo-area img {
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
+            border: 4px solid white;
             object-fit: cover;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-            border: 8px solid white;
         }
+        .logo-text {
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+        .subtitle { font-size: 1.1rem; opacity: 0.95; }
 
-        /* নতুন সার্ভিস সেকশন */
-        .services {
-            max-width: 1400px;
-            margin: 100px auto;
-            padding: 0 40px;
-        }
-        .services h2 {
-            text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 60px;
-        }
-        .service-content {
+        .main-content {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
             display: flex;
-            align-items: center;
-            gap: 80px;
+            gap: 40px;
             flex-wrap: wrap;
         }
-        .service-list {
-            flex: 1;
-            min-width: 300px;
-        }
-        .service-list ul {
-            list-style: none;
-        }
-        .service-list li {
-            padding: 15px 0;
-            font-size: 1.2rem;
-            border-bottom: 1px solid #eee;
-        }
-        .service-image {
-            flex: 1;
-            min-width: 300px;
+        .profile-sidebar {
             text-align: center;
+            min-width: 280px;
         }
-        .service-image img {
-            width: 100%;
-            max-width: 420px;
+        .profile-sidebar img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid #6d28d9;
+            margin-bottom: 15px;
+        }
+        .gallery {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .card {
+            background: white;
             border-radius: 16px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
+        .card img { width: 100%; height: 220px; object-fit: cover; }
+        .card-info { padding: 15px; text-align: center; }
     </style>
 </head>
 <body>
     <header>
-        <nav>
-            <a href="index.html" class="logo">Fx Alamin</a>
-            <div>
-                <a href="index.html" style="margin-right:25px;">হোম</a>
-                <a href="projects.html" style="margin-right:25px;">শপ</a>
-                <a href="contact.html">যোগাযোগ</a>
+        <div class="header-content">
+            <div class="logo-area">
+                <img src="my-photo.jpg" alt="Fx Alamin">
+                <div>
+                    <div class="logo-text">ডিজাইন শপ</div>
+                    <div class="subtitle">প্রিমিয়াম গ্রাফিক ডিজাইন রিসোর্স</div>
+                </div>
             </div>
-        </nav>
+        </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-text">
-            <h1>হ্যালো, আমি Fx Alamin</h1>
-            <p>প্রফেশনাল গ্রাফিক ডিজাইনার। পোস্টার, ব্যানার, সোশ্যাল মিডিয়া ডিজাইন ও ব্র্যান্ডিংয়ে বিশেষজ্ঞ।</p>
-            <a href="projects.html" style="background:#6d28d9; color:white; padding:14px 40px; border-radius:50px; text-decoration:none; display:inline-block;">সব ডিজাইন দেখুন →</a>
+    <div class="main-content">
+        <!-- বাম পাশে রাউন্ড ছবি + তথ্য -->
+        <div class="profile-sidebar">
+            <img src="my-photo.jpg" alt="Fx Alamin">
+            <h2>Fx Alamin</h2>
+            <p><strong>মোবাইল:</strong> ০১XXXXXXXXXX</p>
+            <p>প্রফেশনাল গ্রাফিক ডিজাইনার</p>
         </div>
-        <img src="my-photo.jpg" alt="Fx Alamin">
-    </section>
 
-    <!-- নতুন সার্ভিস সেকশন -->
-    <section class="services">
-        <h2>আমার সার্ভিসসমূহ</h2>
-        <div class="service-content">
-            <div class="service-list">
-                <ul>
-                    <li>🎨 পোস্টার ডিজাইন (ইভেন্ট, ফেস্টিভাল, প্রোডাক্ট)</li>
-                    <li>📱 সোশ্যাল মিডিয়া ডিজাইন ও থাম্বনেইল</li>
-                    <li>🏷️ লোগো ও ব্র্যান্ডিং আইডেন্টিটি</li>
-                    <li>🖼️ ব্যানার, ফ্লায়ার ও প্রিন্ট ডিজাইন</li>
-                    <li>📦 প্যাকেজিং ডিজাইন</li>
-                    <li>✨ মোশন গ্রাফিক্স (বেসিক)</li>
-                </ul>
+        <!-- ডান পাশে ডিজাইন গ্যালারি -->
+        <div class="gallery">
+            <!-- তোমার ডিজাইন কার্ডগুলো এখানে থাকবে -->
+            <div class="card">
+                <img src="design1.jpg" alt="ফলের উৎসব">
+                <div class="card-info">
+                    <h3>ফলের উৎসব পোস্টার ২০২৬</h3>
+                    <p>৳ ২৯৯</p>
+                </div>
             </div>
-            <div class="service-image">
-                <img src="my-photo.jpg" alt="Fx Alamin Design">
-            </div>
+
+            <!-- আরও কার্ড যোগ করতে পারো -->
         </div>
-    </section>
+    </div>
 </body>
 </html>
