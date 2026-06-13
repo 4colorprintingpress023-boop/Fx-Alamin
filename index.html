@@ -3,80 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fx Alamin Design - Graphic Designer</title>
+    <title>Fx Alamin Design - Graphic Resources</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #f8f9fc; color: #1a1a2e; }
-        body.dark { background: #0f0f1a; color: #fff; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8f9fc;
+            color: #1a1a2e;
+        }
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #6d28d9;
+        }
+        .hero {
+            background: linear-gradient(135deg, #6d28d9, #a78bfa);
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
 
-        header { background: rgba(255,255,255,0.95); backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 100; padding: 1.2rem 0; border-bottom: 1px solid #eee; }
-        body.dark header { background: rgba(15,15,26,0.95); border-bottom: 1px solid #333; }
+        .categories {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        .cat-btn {
+            padding: 12px 28px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            cursor: pointer;
+        }
 
-        nav { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 40px; }
-        .logo { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700; color: #6d28d9; }
-        body.dark .logo { color: #c4b5fd; }
-
-        .hero { text-align: center; padding: 140px 20px; background: linear-gradient(135deg, #6d28d9, #a78bfa); color: white; }
-        .hero h1 { font-size: 4.2rem; margin-bottom: 20px; font-family: 'Playfair Display', serif; }
-        .hero p { font-size: 1.5rem; max-width: 700px; margin: 0 auto 40px; }
-
-        .section { padding: 100px 40px; max-width: 1400px; margin: 0 auto; }
-        .section h2 { text-align: center; font-size: 3rem; margin-bottom: 60px; font-family: 'Playfair Display', serif; }
-
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .service-card { background: white; padding: 40px 30px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; transition: 0.4s; }
-        body.dark .service-card { background: #1a1a2e; }
-        .service-card:hover { transform: translateY(-15px); }
-
-        .btn { background: #6d28d9; color: white; padding: 14px 40px; border-radius: 50px; text-decoration: none; display: inline-block; margin-top: 30px; font-weight: 600; }
+        .gallery {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px 80px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+        }
+        .card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+        .card-info {
+            padding: 18px;
+        }
+        .card-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        .price {
+            color: #6d28d9;
+            font-weight: 700;
+        }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">Fx Alamin</div>
-            <div class="nav-links">
-                <a href="index.html">হোম</a>
-                <a href="about.html">আমার সম্পর্কে</a>
-                <a href="projects.html">প্রজেক্টস</a>
-                <a href="#services">সার্ভিস</a>
+            <div class="logo">Fx Alamin Design</div>
+            <div>
+                <a href="projects.html" style="margin-right:20px;">সব ডিজাইন</a>
                 <a href="contact.html">যোগাযোগ</a>
             </div>
         </nav>
     </header>
 
     <section class="hero">
-        <h1>আমি Fx Alamin</h1>
-        <p>প্রফেশনাল গ্রাফিক ডিজাইনার | পোস্টার • ব্যানার • ব্র্যান্ডিং • সোশ্যাল মিডিয়া ডিজাইন</p>
-        <a href="projects.html" class="btn">আমার কাজ দেখুন</a>
+        <h1>প্রিমিয়াম গ্রাফিক ডিজাইন রিসোর্স</h1>
+        <p>পোস্টার, ব্যানার, সোশ্যাল মিডিয়া টেমপ্লেট — সব এক জায়গায়</p>
     </section>
 
-    <section id="services" class="section">
-        <h2>আমার সার্ভিসসমূহ</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>🎨 পোস্টার ডিজাইন</h3>
-                <p>ইভেন্ট, ফেস্টিভাল, প্রোডাক্ট পোস্টার</p>
-            </div>
-            <div class="service-card">
-                <h3>📱 সোশ্যাল মিডিয়া ডিজাইন</h3>
-                <p>ফেসবুক, ইনস্টাগ্রাম, ইউটিউব থাম্বনেইল ও ব্যানার</p>
-            </div>
-            <div class="service-card">
-                <h3>🏷️ ব্র্যান্ডিং ও লোগো</h3>
-                <p>লোগো ডিজাইন, ব্র্যান্ড আইডেন্টিটি</p>
-            </div>
-            <div class="service-card">
-                <h3>🖼️ ব্যানার ও প্রিন্ট ডিজাইন</h3>
-                <p>বড় ব্যানার, ভিজিটিং কার্ড, ফ্লায়ার</p>
+    <div class="categories">
+        <button class="cat-btn">সব</button>
+        <button class="cat-btn">পোস্টার</button>
+        <button class="cat-btn">ব্যানার</button>
+        <button class="cat-btn">সোশ্যাল মিডিয়া</button>
+        <button class="cat-btn">লোগো</button>
+    </div>
+
+    <div class="gallery">
+        <!-- তোমার ডিজাইনগুলো এখানে যোগ করবে -->
+        <div class="card">
+            <img src="design1.jpg" alt="ডিজাইন ১">
+            <div class="card-info">
+                <h3>ফলের উৎসব পোস্টার</h3>
+                <p class="price">৳ ২৯৯</p>
             </div>
         </div>
-    </section>
-
-    <p style="text-align:center; padding: 40px;">
-        <a href="projects.html" class="btn">সব প্রজেক্ট দেখুন →</a>
-    </p>
+        
+        <!-- আরও কার্ড যোগ করো -->
+    </div>
 </body>
 </html>
