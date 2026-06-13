@@ -3,52 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Works | Fx Alamin Design</title>
+    <title>Shop | Fx Alamin Design</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', sans-serif;
             background: #f8f9fc;
             color: #1a1a2e;
-            transition: all 0.4s;
         }
-        body.dark {
-            background: #0f0f1a;
-            color: #fff;
-        }
-
         header {
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(15px);
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 100;
-            padding: 1.2rem 0;
-            border-bottom: 1px solid #eee;
         }
-        body.dark header { background: rgba(15,15,26,0.95); border-bottom: 1px solid #333; }
-
         nav {
             max-width: 1400px;
             margin: 0 auto;
+            padding: 1rem 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 40px;
         }
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: #6d28d9;
+        .logo { font-size: 1.9rem; font-weight: 700; color: #6d28d9; }
+
+        .hero {
+            background: linear-gradient(135deg, #6d28d9, #a78bfa);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
         }
-        body.dark .logo { color: #c4b5fd; }
+        .hero h1 { font-size: 3.2rem; margin-bottom: 15px; }
 
         .filters {
             max-width: 1400px;
-            margin: 50px auto 30px;
+            margin: 40px auto;
             padding: 0 40px;
             display: flex;
             flex-wrap: wrap;
@@ -56,132 +48,116 @@
             justify-content: center;
         }
         .filter-btn {
-            padding: 10px 24px;
-            border: 2px solid #6d28d9;
-            background: transparent;
-            color: #6d28d9;
+            padding: 12px 26px;
+            background: white;
+            border: 1px solid #ddd;
             border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s;
             font-weight: 500;
         }
-        body.dark .filter-btn { color: #c4b5fd; border-color: #c4b5fd; }
-        .filter-btn.active, .filter-btn:hover {
-            background: #6d28d9;
-            color: white;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 3.6rem;
-            margin-bottom: 20px;
-            font-family: 'Playfair Display', serif;
-        }
+        .filter-btn.active { background: #6d28d9; color: white; border-color: #6d28d9; }
 
         .gallery {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 40px 80px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 35px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
-
-        .design-card {
+        .card {
             background: white;
-            border-radius: 24px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.5s ease;
-            opacity: 0;
-            animation: fadeInUp 0.8s forwards;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: 0.4s;
         }
-        body.dark .design-card { background: #1a1a2e; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
-
-        .design-card:hover {
-            transform: translateY(-20px);
-            box-shadow: 0 25px 50px rgba(109, 40, 217, 0.25);
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 35px rgba(0,0,0,0.15);
         }
-        .design-card img {
+        .card img {
             width: 100%;
-            height: 320px;
+            height: 280px;
             object-fit: cover;
-            transition: 0.6s;
         }
-        .design-card:hover img {
-            transform: scale(1.08);
+        .card-info {
+            padding: 20px;
         }
-        .info {
-            padding: 28px;
+        .card-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
         }
-        .info h3 { font-size: 1.55rem; margin-bottom: 10px; }
-        .info p { color: #555; margin-bottom: 12px; }
-        body.dark .info p { color: #bbb; }
-        .date { font-size: 0.95rem; color: #888; }
-        body.dark .date { color: #999; }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
+        .price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #6d28d9;
+            margin: 10px 0;
         }
+        .btn {
+            background: #6d28d9;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+        }
+        .btn:hover { background: #5b21b6; }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">Fx Alamin</div>
+            <div class="logo">Fx Alamin Design</div>
             <div>
-                <button onclick="toggleTheme()" style="padding:10px 16px; border:none; background:#6d28d9; color:white; border-radius:50px; cursor:pointer;">
-                    🌙 / ☀️
-                </button>
+                <a href="index.html">হোম</a>
+                <a href="contact.html" style="margin-left:20px;">যোগাযোগ</a>
             </div>
         </nav>
     </header>
 
-    <h1>My Design Works</h1>
+    <section class="hero">
+        <h1>আমার ডিজাইন শপ</h1>
+        <p>প্রিমিয়াম কোয়ালিটির গ্রাফিক ডিজাইন রিসোর্স</p>
+    </section>
 
     <div class="filters">
-        <button class="filter-btn active" onclick="filterCategory('all')">All</button>
-        <button class="filter-btn" onclick="filterCategory('poster')">Poster</button>
-        <button class="filter-btn" onclick="filterCategory('banner')">Banner</button>
-        <button class="filter-btn" onclick="filterCategory('social')">Social Media</button>
-        <button class="filter-btn" onclick="filterCategory('branding')">Branding</button>
+        <button class="filter-btn active" onclick="filter('all')">সব</button>
+        <button class="filter-btn" onclick="filter('poster')">পোস্টার</button>
+        <button class="filter-btn" onclick="filter('banner')">ব্যানার</button>
+        <button class="filter-btn" onclick="filter('social')">সোশ্যাল মিডিয়া</button>
     </div>
-    
+
     <div class="gallery" id="gallery">
-        <!-- তোমার সব ডিজাইন এখানে যোগ করো -->
-        <div class="design-card" data-category="poster">
+        <!-- তোমার ডিজাইনগুলো এখানে যোগ করো -->
+        <div class="card" data-category="poster">
             <img src="design1.jpg" alt="ফলের উৎসব">
-            <div class="info">
-                <h3>ফলের উৎসব ২০২৬</h3>
-                <p>ফেস্টিভাল পোস্টার ডিজাইন</p>
-                <div class="date">জুন ২০২৬ • Poster</div>
+            <div class="card-info">
+                <h3>ফলের উৎসব পোস্টার ২০২৬</h3>
+                <p class="price">৳ ২৯৯</p>
+                <button class="btn" onclick="alert('ডাউনলোড শুরু হচ্ছে... (এখনো ডেমো)')">ডাউনলোড করুন</button>
             </div>
         </div>
 
-        <!-- আরও কার্ড যোগ করতে নিচের ব্লক কপি করে ব্যবহার করো -->
+        <!-- আরও কার্ড যোগ করার উদাহরণ -->
         <!-- 
-        <div class="design-card" data-category="banner">
+        <div class="card" data-category="banner">
             <img src="design2.jpg" alt="ব্যানার">
-            <div class="info">
-                <h3>প্রজেক্ট নাম</h3>
-                <p>বর্ণনা</p>
-                <div class="date">তারিখ • Category</div>
+            <div class="card-info">
+                <h3>রমজান ব্যানার সিরিজ</h3>
+                <p class="price">৳ ৪৯৯</p>
+                <button class="btn">ডাউনলোড করুন</button>
             </div>
         </div>
         -->
     </div>
 
     <script>
-        function toggleTheme() {
-            document.body.classList.toggle('dark');
-        }
-
-        function filterCategory(category) {
-            const cards = document.querySelectorAll('.design-card');
-            const buttons = document.querySelectorAll('.filter-btn');
-            
-            buttons.forEach(btn => btn.classList.remove('active'));
+        function filter(category) {
+            const cards = document.querySelectorAll('.card');
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
 
             cards.forEach(card => {
